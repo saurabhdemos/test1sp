@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+  <span id="qresult1"></span>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const accountname = urlParams.get('aname');
+      if (accountname !== null) {
+        localStorage.setItem('aname', accountname);
+        document.getElementById('qresult1').textContent = accountname;
+      } else {
+        const localValue = localStorage.getItem('aname');
+        document.getElementById('qresult1').textContent = localValue !== null ? localValue : "Null";
+      }
+    });
+  </script>
+</body>
+</html>
